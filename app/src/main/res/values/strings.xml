@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Androi CRUD App</string>
+    <string name="enter_your_name">Enter Your Name</string>
+    <string name="textview">TextView</string>
+    <string name="enter_value">Enter Value</string>
+    <string name="button">Button</string>
+    <string name="next">Next</string>
+    <string name="enter_your_name_here">Enter Your Name Here</string>
+    <string name="print_my_name">Print My Name</string>
+</resources>
