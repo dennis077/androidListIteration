@@ -19,9 +19,9 @@ public class MainActivity extends AppCompatActivity {
     ListIterator<String> litr = null;
 
     // Add Them as global variables
-    TextView texts;
+    TextView texts,disp;
     Button button2, button;
-
+    EditText uTxt;
     @Override
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +29,10 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         // Reference Your Views Here
+
+         uTxt= (EditText) findViewById(R.id.nameTxt);
+        disp = (TextView) findViewById(R.id.displayName);
+
         texts = (TextView) findViewById(R.id.listText);
         button2 = (Button) findViewById(R.id.btnDisplayList);
         button = (Button) findViewById(R.id.printName);
@@ -45,9 +49,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onChange(View view) {
-        EditText uTxt = (EditText) findViewById(R.id.nameTxt);
-        TextView disp = (TextView) findViewById(R.id.displayName);
-
         disp.setText(uTxt.getText().toString());
         disp.setVisibility(View.VISIBLE);
     }
