@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -16,14 +17,21 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
     String content;
     ListIterator<String> litr = null;
-    TextView texts = (TextView) findViewById(R.id.textView3);
 
+    // Add Them as global variables
+    TextView texts;
+    Button button2, button;
 
     @Override
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        // Reference Your Views Here
+        texts = (TextView) findViewById(R.id.textView3);
+        button2 = (Button) findViewById(R.id.button2);
+        button = (Button) findViewById(R.id.button);
 
         List<String> names = new ArrayList<String>();
         names.add("Shyam");
@@ -33,7 +41,6 @@ public class MainActivity extends AppCompatActivity {
         names.add("Kate");
         //Obtaining list iterator
         litr = names.listIterator();
-
 
     }
 
