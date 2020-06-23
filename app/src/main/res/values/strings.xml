@@ -8,4 +8,5 @@
     <string name="enter_your_name_here">Enter Your Name Here</string>
     <string name="print_my_name">Print My Name</string>
     <string name="show_list">Show List</string>
+    <string name="prev">Prev</string>
 </resources>

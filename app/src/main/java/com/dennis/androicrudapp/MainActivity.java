@@ -19,7 +19,11 @@ public class MainActivity extends AppCompatActivity {
     private ListIterator<String> litr = null;
 
     // Add Them as global variables
-    private TextView texts;
+
+    private TextView texts,disp;
+    EditText uTxt;
+
+
     private Button nextBtn, displayListBtn, printNameBtn, previousBtn;
 
     @Override
@@ -28,6 +32,10 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         // Reference Your Views Here
+
+         uTxt= (EditText) findViewById(R.id.nameTxt);
+        disp = (TextView) findViewById(R.id.displayName);
+
         texts = (TextView) findViewById(R.id.listText);
         displayListBtn = (Button) findViewById(R.id.btnDisplayList);
         printNameBtn = (Button) findViewById(R.id.printName);
@@ -46,9 +54,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onChange(View view) {
-        EditText uTxt = (EditText) findViewById(R.id.nameTxt);
-        TextView disp = (TextView) findViewById(R.id.displayName);
-
         disp.setText(uTxt.getText().toString());
         disp.setVisibility(View.VISIBLE);
     }
