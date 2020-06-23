@@ -20,10 +20,9 @@ public class MainActivity extends AppCompatActivity {
 
     // Add Them as global variables
     TextView texts;
-    Button button2, button;
+    Button button4, button2, button;
 
     @Override
-
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
@@ -31,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
         // Reference Your Views Here
         texts = (TextView) findViewById(R.id.textView3);
         button2 = (Button) findViewById(R.id.button2);
+        button4 = (Button) findViewById(R.id.button4);
         button = (Button) findViewById(R.id.button);
 
         List<String> names = new ArrayList<String>();
@@ -53,12 +53,17 @@ public class MainActivity extends AppCompatActivity {
 
     public void nextVal(View view) {
         if (litr.hasNext())
-            content=litr.next().toString();
+            content = litr.next();
         texts.setText(content);
-        }
-
-
     }
+
+    public void prevVal(View view) {
+        if (litr.hasPrevious())
+            content = litr.previous();
+        texts.setText(content);
+    }
+
+}
 
 
 
