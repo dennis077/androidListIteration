@@ -15,7 +15,8 @@ import java.util.List;
 
 
 public class MainActivity extends AppCompatActivity {
-    private String content,nm;
+    private String content;
+    String nm;
     private ListIterator<String> litr = null;
 
     // Add Them as global variables
