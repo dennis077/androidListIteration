@@ -3,11 +3,13 @@ package com.dennis.androicrudapp;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import java.util.Iterator;
 import java.util.ListIterator;
 
 import java.util.ArrayList;
@@ -15,6 +17,8 @@ import java.util.List;
 
 
 public class MainActivity extends AppCompatActivity {
+
+    private static final String TAG = MainActivity.class.getSimpleName();
     private String content;
     String nm,nm2;
     private ListIterator<String> litr = null;
@@ -24,7 +28,11 @@ public class MainActivity extends AppCompatActivity {
     private TextView texts,disp;
     EditText uTxt;
 
-    List<String> names = new ArrayList<String>();
+    List<String> existingList = new ArrayList<String>();
+
+    // Need a new List to add or modify items in order to prevent concurrent exception with Iterator
+    List<String> toAddList = new ArrayList<String>();
+
     private Button nextBtn, displayListBtn, printNameBtn, previousBtn;
 
     @Override
@@ -43,13 +51,14 @@ public class MainActivity extends AppCompatActivity {
         nextBtn = (Button) findViewById(R.id.btnNext);
         previousBtn = (Button) findViewById(R.id.btnPrev);
 
-        names.add("Shyam");
-        names.add("Rajat");
-        names.add("Paul");
-        names.add("Tom");
-        names.add("Kate");
+        existingList.add("Shyam");
+        existingList.add("Rajat");
+        existingList.add("Paul");
+        existingList.add("Tom");
+        existingList.add("Kate");
+
         //Obtaining list iterator
-        litr = names.listIterator();
+        litr = existingList.listIterator();
 
     }
 
@@ -61,9 +70,22 @@ public class MainActivity extends AppCompatActivity {
 
     public void onAdd(View view) {
             nm=uTxt.getText().toString();
-            names.add(nm);
-        }
 
+//            toAddList.add(nm);
+
+        // Temporary solution
+            existingList.add(nm);
+
+            // Just for Logging
+            for (String name : existingList) {
+                Log.i(TAG, "onAdd: New List : " + name);
+            }
+
+//            existingList.addAll(toAddList);
+
+            litr = existingList.listIterator();
+
+        }
 
     public void nextVal(View view) {
         if (litr.hasNext())
