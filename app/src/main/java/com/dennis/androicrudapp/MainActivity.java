@@ -15,7 +15,7 @@ import java.util.List;
 
 
 public class MainActivity extends AppCompatActivity {
-    private String content;
+    private String content,nm;
     private ListIterator<String> litr = null;
 
     // Add Them as global variables
@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
     private TextView texts,disp;
     EditText uTxt;
 
-
+    List<String> names = new ArrayList<String>();
     private Button nextBtn, displayListBtn, printNameBtn, previousBtn;
 
     @Override
@@ -42,7 +42,6 @@ public class MainActivity extends AppCompatActivity {
         nextBtn = (Button) findViewById(R.id.btnNext);
         previousBtn = (Button) findViewById(R.id.btnPrev);
 
-        List<String> names = new ArrayList<String>();
         names.add("Shyam");
         names.add("Rajat");
         names.add("Paul");
@@ -53,10 +52,16 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public void onChange(View view) {
-        disp.setText(uTxt.getText().toString());
-        disp.setVisibility(View.VISIBLE);
+    public void onChange(View view){
+
+        disp.setText("");
+
     }
+
+    public void onAdd(View view) {
+            nm=uTxt.getText().toString();
+            names.add(nm);
+        }
 
 
     public void nextVal(View view) {
